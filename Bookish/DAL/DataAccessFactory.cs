@@ -1,4 +1,5 @@
-﻿using DAL.Interface;
+﻿using BLL.DTOs;
+using DAL.Interface;
 using DAL.Models;
 using DAL.Repos;
 using System;
@@ -12,10 +13,6 @@ namespace DAL
     public class DataAccessFactory
     {
         public static IRepo<Book, int, Book> BookData()
-        {
-            return new BookRepo();
-        }
-public static IRepo<Book, int, Book> BookData()
         {
             return new BookRepo();
         }
@@ -50,7 +47,7 @@ public static IRepo<Book, int, Book> BookData()
 
         public static IRepo<Review, int, Review> ReviewData()
         {
-            return new ReviewRepo();
+            return new ReviewRepo(); 
         }
 
 

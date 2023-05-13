@@ -12,3 +12,17 @@ D:\Users\msash\Desktop\Bookish\Bookish\BLL\bin\Debug\EntityFramework.dll
 D:\Users\msash\Desktop\Bookish\Bookish\BLL\bin\Debug\EntityFramework.xml
 D:\Users\msash\Desktop\Bookish\Bookish\BLL\bin\Debug\AutoMapper.dll
 D:\Users\msash\Desktop\Bookish\Bookish\BLL\bin\Debug\AutoMapper.xml
+D:\Users\msash\Desktop\FinalTermProject\Bookish\BLL\obj\Debug\BLL.csproj.AssemblyReference.cache
+D:\Users\msash\Desktop\FinalTermProject\Bookish\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+D:\Users\msash\Desktop\FinalTermProject\Bookish\BLL\obj\Debug\BLL.dll
+D:\Users\msash\Desktop\FinalTermProject\Bookish\BLL\obj\Debug\BLL.pdb
+D:\Users\msash\Desktop\FinalTermProject\Bookish\BLL\bin\Debug\BLL.dll
+D:\Users\msash\Desktop\FinalTermProject\Bookish\BLL\bin\Debug\BLL.pdb
+D:\Users\msash\Desktop\FinalTermProject\Bookish\BLL\bin\Debug\AutoMapper.dll
+D:\Users\msash\Desktop\FinalTermProject\Bookish\BLL\bin\Debug\DAL.dll
+D:\Users\msash\Desktop\FinalTermProject\Bookish\BLL\bin\Debug\EntityFramework.dll
+D:\Users\msash\Desktop\FinalTermProject\Bookish\BLL\bin\Debug\DAL.pdb
+D:\Users\msash\Desktop\FinalTermProject\Bookish\BLL\bin\Debug\DAL.dll.config
+D:\Users\msash\Desktop\FinalTermProject\Bookish\BLL\bin\Debug\AutoMapper.xml
+D:\Users\msash\Desktop\FinalTermProject\Bookish\BLL\bin\Debug\EntityFramework.xml
+D:\Users\msash\Desktop\FinalTermProject\Bookish\BLL\obj\Debug\BLL.csproj.CopyComplete
