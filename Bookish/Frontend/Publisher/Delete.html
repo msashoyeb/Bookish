@@ -1,0 +1,133 @@
+<h1 align="center">Publisher panel</h1>
+
+<head>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="Design.css">
+</head>
+
+<body>
+    <div class="menubar">
+        <a href="Home.html">Home</a>
+
+        <div class="menubar_content">
+            <a href="#">Book Information</a>
+            <div class="menubar_subcontent">
+                <a href="Create.html">Insert book</a>
+                <a href="Read.html">Show all books</a>
+                <a href="Update.html">Update book</a>
+                <a href="Delete.html">Delete a book</a>
+            </div>
+        </div>
+
+        <div class="menubar_content2">
+            <a href="#">Others information</a>
+            <div class="menubar_subcontent2">
+                <a href="Rating.html">Show books rating</a>
+                <a href="Review.html">Show books review</a>
+            </div>
+        </div>
+
+        <a href="../Login.html">Logout</a>
+    </div>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+</body>
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Book</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Data Form</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <style>
+        /* Style the form */
+        form {
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        /* Style the form label and input */
+        label, input[type=text] {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        /* Style the form submit button */
+        input[type=submit] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <h1>Delete Book</h1>
+        <div class="form-group">
+            <label for="id">ID:</label>
+            <input type="text" id="id" name="id" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary">Delete Book</button>
+    </form>
+    <script>
+        document.querySelector('form').addEventListener('submit', (event) => {
+            event.preventDefault();
+            const id = document.getElementById('id').value;
+            deleteData(id);
+        });
+
+        function deleteData(id) {
+            const options = {
+                method: 'DELETE',
+                headers: { 'Content-Type': 'application/json' }
+            };
+            fetch(`https://localhost:44302/api/books/delete/${id}`, options)
+                .then(response => {
+                    if (response.ok) {
+                        console.log(`Data with ID ${id} has been deleted successfully!`);
+                        // Display success message on the screen
+                        const message = document.createElement('p');
+                        message.textContent = `Data with ID ${id} has been deleted successfully!`;
+                        message.classList.add('success');
+                        document.body.appendChild(message);
+                    } else {
+                        console.error('Error deleting data:', response.statusText);
+                        // Display error message on the screen
+                        const message = document.createElement('p');
+                        message.textContent = `Error deleting data with ID ${id}: ${response.statusText}`;
+                        message.classList.add('error');
+                        document.body.appendChild(message);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Response data:', data);
+                })
+                .catch(error => console.error(error));
+        }
+
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+

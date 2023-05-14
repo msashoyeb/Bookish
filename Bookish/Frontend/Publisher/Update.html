@@ -1,0 +1,174 @@
+<h1 align="center">Publisher panel</h1>
+
+<head>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="Design.css">
+</head>
+
+<body>
+    <div class="menubar">
+        <a href="Home.html">Home</a>
+
+        <div class="menubar_content">
+            <a href="#">Book Information</a>
+            <div class="menubar_subcontent">
+                <a href="Create.html">Insert book</a>
+                <a href="Read.html">Show all books</a>
+                <a href="Update.html">Update book</a>
+                <a href="Delete.html">Delete a book</a>
+            </div>
+        </div>
+
+        <div class="menubar_content2">
+            <a href="#">Others information</a>
+            <div class="menubar_subcontent2">
+                <a href="Rating.html">Show books rating</a>
+                <a href="Review.html">Show books review</a>
+            </div>
+        </div>
+
+        <a href="../Login.html">Logout</a>
+    </div>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+</body>
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Book</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <style>
+        body {
+            background-color: #f5f5f5;
+        }
+
+        .success {
+            background-color: lightgreen;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .error {
+            background-color: red;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        form {
+            width: 500px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px #cfcfcf;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: 600;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #cfcfcf;
+            margin-bottom: 20px;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            border-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 600;
+        }
+
+            input[type="submit"]:hover {
+                background-color: #0069d9;
+                border-color: #0062cc;
+                cursor: pointer;
+            }
+    </style>
+</head>
+<body>
+    <form>
+        <h2>Update Book</h2>
+        <div class="form-group">
+            <label for="id">ID:</label>
+            <input type="text" id="id" name="id">
+        </div>
+        <div class="form-group">
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title">
+        </div>
+        <div class="form-group">
+            <label for="price">Price:</label>
+            <input type="text" id="price" name="price">
+        </div>
+        <div class="form-group">
+            <label for="quantity">Quantity:</label>
+            <input type="text" id="quantity" name="quantity">
+        </div>
+        <div class="form-group">
+            <label for="publisherId">Publisher ID:</label>
+            <input type="text" id="publisherId" name="publisherId">
+        </div>
+        <input type="submit" value="Update Book">
+    </form>
+
+    <script>
+        document.querySelector('form').addEventListener('submit', (event) => {
+            event.preventDefault();
+            const id = document.getElementById('id').value;
+            const title = document.getElementById('title').value;
+            const price = document.getElementById('price').value;
+            const quantity = document.getElementById('quantity').value;
+            const publisherId = document.getElementById('publisherId').value;
+            updateData(id, title, price, quantity, publisherId);
+        });
+
+        function updateData(id, title, price, quantity, publisherId) {
+            const data = { id, title, price, quantity, publisherId };
+            const options = {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            };
+            fetch('https://localhost:44302/api/books/update', options)
+                .then(response => {
+                    if (response.ok) {
+                        console.log('Data updated successfully!');
+                        // Display success message on the screen
+                        const message = document.createElement('p');
+                        message.textContent = 'Data updated successfully!';
+                        message.classList.add('success');
+                        document.body.appendChild(message);
+                    } else {
+                        console.error('Error updating data:', response.statusText);
+                        // Display error message on the screen
+                        const message = document.createElement('p');
+                        message.textContent = `Error updating data: ${response.statusText}`;
+                        message.classList.add('error');
+                        document.body.appendChild(message);
+                    }
+                    return response.json();
+                })
+                .then(data => console.log(data))
+                .catch(error => console.error(error));
+        }
+    </script>
+</body>
+</html>
