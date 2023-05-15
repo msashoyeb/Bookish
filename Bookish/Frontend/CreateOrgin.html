@@ -1,0 +1,36 @@
+
+<form>
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title"><br><br>
+    <label for="price">Price:</label>
+    <input type="text" id="price" name="price"><br><br>
+    <label for="quantity">Quantity:</label>
+    <input type="text" id="quantity" name="quantity"><br><br>
+    <label for="publisherId">PublisherId:</label>
+    <input type="text" id="publisherId" name="publisherId"><br><br>
+    <input type="submit" value="Submit">
+</form>
+
+<script>
+    document.querySelector('form').addEventListener('submit', (event) => {
+        event.preventDefault();
+        const title = document.getElementById('title').value;
+        const price = document.getElementById('price').value;
+        const quantity = document.getElementById('quantity').value;
+        const publisherId = document.getElementById('publisherId').value;
+        sendData(title, price, quantity, publisherId);
+    });
+
+    function sendData(title, price, quantity, publisherId) {
+        const data = { title, price, quantity, publisherId };
+        const options = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        };
+        fetch('https://localhost:44302/api/books/add', options)
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch(error => console.error(error));
+    }
+</script>
