@@ -90,7 +90,7 @@ namespace BLL.Services
         {
             return DataAccessFactory.BookData().Delete(id);
         }
-        static List<BookDTO> Convert(List<Book> books)
+        static List<BookDTO> Convert(List<Book> books) //convert object to DTO and object
         {
             var data = new List<BookDTO>();
             foreach (var book in books)
@@ -99,7 +99,7 @@ namespace BLL.Services
             }
             return data;
         }
-        static Book Convert(BookDTO bookDTO)
+        static Book Convert(BookDTO bookDTO) //return from database
         {
             return new Book()
             {

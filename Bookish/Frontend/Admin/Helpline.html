@@ -57,16 +57,16 @@
 	</style>
 </head>
 <body ng-app="my-app">
-	<div class="container" ng-controller="reviewsCtrl">
-		<h1>All Reviews</h1>
+	<div class="container" ng-controller="helplinesCtrl">
+		<h1>Help Department</h1>
 		<table>
 			<tr>
-				<th>Opinion</th>
-				<th>BookId</th>
+				<th>Department Name</th>
+				<th>Number</th>
 			</tr>
-			<tr ng-repeat="r in reviews">
-					<td>{{r.Opinion}}</td>
-					<td>{{r.BookId}}</td>
+			<tr ng-repeat="h in helplines">
+				<td>{{h.DepartmentName}}</td>
+					<td>{{h.Number}}</td>
 			</tr>
 		</table>
 	</div>
@@ -74,9 +74,9 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 	<script>
 		var app = angular.module("my-app",[]);
-        app.controller('reviewsCtrl',function($scope,$http){
-            $http.get("https://localhost:44302/api/reviews/get").then(function(response){
-                $scope.reviews = response.data;
+        app.controller('helplinesCtrl',function($scope,$http){
+            $http.get("https://localhost:44302/api/helplines/get").then(function(response){
+                $scope.helplines = response.data;
 			},
 			function(err){
 			debugger;
