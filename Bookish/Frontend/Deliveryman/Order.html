@@ -17,6 +17,48 @@
 
 
 
+
+
+
+
+
+<body>
+    <div class="container d-flex justify-content-end align-items-center">
+        <a href="#" id="notificationIcon" class="position-relative ml-3">
+            <i class="fas fa-bell"></i>
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">2</span>
+        </a>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        document.getElementById('notificationIcon').addEventListener('click', function () {
+            var notificationIcon = document.getElementById('notificationIcon');
+            var notificationBadge = notificationIcon.querySelector('.badge');
+
+            if (notificationBadge) {
+                var notificationCount = parseInt(notificationBadge.innerText);
+                if (notificationCount > 0) {
+                    alert('You have new orders!');
+                    notificationBadge.innerText = '0';
+                    notificationBadge.style.display = 'none';
+                }
+            }
+        });
+    </script>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
